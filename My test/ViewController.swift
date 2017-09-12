@@ -73,7 +73,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     @IBAction func divide(_ sender: Any) {
         
         if(isValid(value: display.text!)){

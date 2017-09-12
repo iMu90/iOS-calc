@@ -56,6 +56,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="%"/>
+                                <connections>
+                                    <action selector="percentage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AZK-Rq-qem"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFM-CX-aHV" colorLabel="IBBuiltInLabel-Blue">
                                 <rect key="frame" x="278" y="136" width="96" height="100"/>
@@ -210,7 +213,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="."/>
                                 <connections>
-                                    <action selector="num:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HTF-df-EaX"/>
+                                    <action selector="num:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Yf-1Q-pgk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J48-TU-tp6" colorLabel="IBBuiltInLabel-Blue">
