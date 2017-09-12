@@ -44,27 +44,7 @@ class ViewController: UIViewController {
         }
         return true
     }
-    
-    
-//    /**
-//     * this function will conver the display value
-//     * from string to float
-//     * @params screen
-//     */
-//    func toFloat(value: String) -> Float
-//    {
-//        return Float(value)!
-//    }
-    
-    /**
-     * this function will reset the display 
-     * to default value (0)
-     * @params screen
-     */
-    
-    
-    
-    
+
     /**
      * this function will change the number sign
      * either positive or negative
@@ -105,11 +85,20 @@ class ViewController: UIViewController {
     
     
     @IBAction func num(_ sender: UIButton) {
-        let nim = sender.titleLabel?.text!
-        self.display.text = nim
+        let num = sender.titleLabel?.text!
+        if(isValid(value: display.text!)){
+            self.display.text = display.text! + num!
+        } else {
+            self.display.text = num!
+        }
+        
     }
 
-    
+    /**
+     * this function will reset the display
+     * to default value (0)
+     * @params screen
+     */
     @IBAction func toClear(_ sender: Any) {
         self.display.text = "0"
     }
