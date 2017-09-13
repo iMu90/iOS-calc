@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     var toReset: Bool = false
     var number1: String!
     var operation: String!
+    
+    var helper = Helper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,10 +68,11 @@ class ViewController: UIViewController {
      * @params screen
      */
     @IBAction func percentage(_ sender: Any) {
-        if(isValid(value: display.text!))
-        {
+        if(isValid(value: display.text!)){
             let num = Float(display.text!)! / 100
             self.display.text = String(num)
+            number1 = display.text!
+            toReset = true
         }
     }
     
@@ -85,12 +88,12 @@ class ViewController: UIViewController {
     
     @IBAction func num(_ sender: UIButton) {
         let num = sender.titleLabel?.text!
-        if(isValid(value: display.text!)){
+        if((isValid(value: display.text!) || sender.titleLabel?.text! == ".") && !toReset){
             self.display.text = display.text! + num!
         } else {
             self.display.text = num!
+            toReset = false
         }
-        
     }
 
     /**
@@ -100,7 +103,27 @@ class ViewController: UIViewController {
      */
     @IBAction func toClear(_ sender: Any) {
         self.display.text = "0"
+        self.number1 = ""
     }
+    
+    
+    /**
+     * this function will handle all the operations
+     */
+    
+    @IBAction func doOperations(_ sender: UIButton) {
+        
+        operation = sender.titleLabel?.text!
+        
+        if(operation != "="){
+            number1 = display.text!
+            toReset = true
+        } else {
+            display.text = String(helper.add(num1: number1, num2: display.text!))
+        }
+
+    }
+    
     
 
 }
