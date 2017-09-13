@@ -18,7 +18,7 @@ class ViewController: UIViewController {
      */
     var toReset: Bool = false
     var number1: String!
-    var operation: String!
+    var tag: Int = -1
     
     var helper = Helper()
 
@@ -52,13 +52,10 @@ class ViewController: UIViewController {
      * either positive or negative
      * @params screen
      */
-    @IBAction func chnageSign(_ sender: Any) {
-        
-        // check if the value is NOT 0
-        if(isValid(value: display.text!)){
-            let num = Float(display.text!)! * -1
-            self.display.text = String(num)
-        }
+    
+    @IBAction func changeSign(_ sender: Any) {
+        let num: Float = Float(display.text!)! * -1
+        self.display.text = String(num)
     }
     
     
@@ -73,15 +70,6 @@ class ViewController: UIViewController {
             self.display.text = String(num)
             number1 = display.text!
             toReset = true
-        }
-    }
-    
-    @IBAction func divide(_ sender: Any) {
-        
-        if(isValid(value: display.text!)){
-            self.number1 = display.text!
-            self.toReset = true
-            self.operation = "divide"
         }
     }
     
@@ -102,8 +90,11 @@ class ViewController: UIViewController {
      * @params screen
      */
     @IBAction func toClear(_ sender: Any) {
-        self.display.text = "0"
-        self.number1 = ""
+        display.text = "0"
+        tag = -1
+        number1 = ""
+        toReset = false
+        
     }
     
     
@@ -113,18 +104,14 @@ class ViewController: UIViewController {
     
     @IBAction func doOperations(_ sender: UIButton) {
         
-        operation = sender.titleLabel?.text!
-        
-        if(operation != "="){
+        if(sender.tag != 5){
             number1 = display.text!
+            tag = sender.tag
             toReset = true
-        } else {
-            display.text = String(helper.add(num1: number1, num2: display.text!))
+        } else if(sender.tag == 5 && tag != -1){
+            display.text = helper.main(num1: number1, num2: display.text!, tag: tag)
         }
 
     }
-    
-    
-
 }
 

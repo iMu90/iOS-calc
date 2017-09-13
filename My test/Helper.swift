@@ -10,7 +10,29 @@ import Foundation
 
 class Helper {
 
-    func add(num1: String, num2: String) -> Float{
-        return Float(num1)! + Float(num2)!
+    func main(num1: String, num2: String, tag: Int) -> String{
+        
+        switch tag {
+        case 1:
+            return divide(num1: num1, num2: num2)
+        case 2:
+            return String(Float(num1)! * Float(num2)!)
+        case 3:
+            return String(Float(num1)! - Float(num2)!)
+        case 4:
+            return String(Float(num1)! + Float(num2)!)
+        default:
+            return "0"
+        }
+    }
+    
+    
+    func divide(num1: String, num2: String)->String
+    {
+        if(Float(num2) == 0){
+            return "Error! cannot divide by zero"
+        } else {
+            return String(Float(num1)! / Float(num2)!)
+        }
     }
 }
