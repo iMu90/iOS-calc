@@ -55,7 +55,7 @@ class ViewController: UIViewController {
     
     @IBAction func changeSign(_ sender: Any) {
         let num: Float = Float(display.text!)! * -1
-        self.display.text = String(num)
+        self.display.text = "\(num)"
     }
     
     
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
     @IBAction func percentage(_ sender: Any) {
         if(isValid(value: display.text!)){
             let num = Float(display.text!)! / 100
-            self.display.text = String(num)
+            self.display.text = "\(num)"
             number1 = display.text!
             toReset = true
         }

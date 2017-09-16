@@ -16,11 +16,11 @@ class Helper {
         case 1:
             return divide(num1: num1, num2: num2)
         case 2:
-            return String(Float(num1)! * Float(num2)!)
+            return "\(Float(num1)! * Float(num2)!)"
         case 3:
-            return String(Float(num1)! - Float(num2)!)
+            return "\(Float(num1)! - Float(num2)!)"
         case 4:
-            return String(Float(num1)! + Float(num2)!)
+            return "\(Float(num1)! + Float(num2)!)"
         default:
             return "0"
         }
@@ -32,7 +32,7 @@ class Helper {
         if(Float(num2) == 0){
             return "Error! cannot divide by zero"
         } else {
-            return String(Float(num1)! / Float(num2)!)
+            return "\(Float(num1)! / Float(num2)!)"
         }
     }
 }
